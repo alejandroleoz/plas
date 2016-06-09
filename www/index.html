@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+
+    <link href="styles.css" type="text/css" rel="stylesheet" />
+    <link href="fonts/font-awesome-4.3.0/css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+
+    <script src="lib/jquery.min.js" type="text/javascript"></script>
+    <script src="lib/purl.js" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function(){
+            $(".minIcon").on("click", function(event){
+                var $target = $(event.target);
+
+                // title
+                $target.parents(".title").children(".fa-minus").toggleClass("hidden");
+                $target.parents(".title").children(".fa-plus").toggleClass("hidden");
+
+                // content
+                var $content = $target.parents(".box").children(".content");
+                $content.toggleClass("hidden");
+            });
+
+            // click en una etapa
+            $(".stage").on("click", function(){
+
+            });
+
+            // online / offline
+            var mode = purl().param('mode');
+            $(".twitterContainer").toggleClass("offline", !!mode && (mode.toUpperCase() == "OFFLINE") );
+            $(".twitterContainerOffline").toggleClass("offline", !!mode && (mode.toUpperCase() == "OFFLINE") );
+
+            // "Mis Retos" y "Mis desafios individuales" minimizados al iniciar
+            $(".retos").find(".minIcon:not(.hidden)").trigger("click");
+            $(".desafiosIndividuales").find(".minIcon:not(.hidden)").trigger("click");
+
+        })
+    </script>
+</head>
+<body>
+
+
+<!-- Header -->
+<div class="headerBar">
+    <img class="institutionLogo" src="img/logoPalermo.png" />
+    <div class="subjectTitle">Proyecto de Investigación</div>
+    <div class="right">
+        <div class="userName">Lorenzo</div>
+        <img class="userPic" src="img/userIcon_m.png" />
+        <i class="fa fa-cog settings"></i>
+    </div>
+</div>
+
+<!-- Notifications-->
+<div class="notificationsArea"></div>
+
+<div class="body">
+
+    <!-- STATUS -->
+    <div class="myStatus box">
+        <div class="content">
+            <div class="myPoints">
+                <div>Mis Puntos</div>
+                <div class="pointsValue">36</div>
+            </div>
+            <div class="myBadges">
+                <div>Mis Medallas</div>
+                <img src="img/badges/medalla1.png">
+                <img src="img/badges/medalla2.png">
+                <img src="img/badges/medalla3.png">
+                <img src="img/badges/medalla3.png">
+                <img src="img/badges/medalla2.png">
+                <img src="img/badges/diploma1.png">
+                <img src="img/badges/medalla2.png">
+                <img src="img/badges/corona.png">
+            </div>
+            <div class="myXP">
+                <div>Mi Nivel de XP</div>
+                <div class="xpLevelValue">4</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRUPO DE TRABAJO-->
+    <div class="myWorkgroup box">
+        <div class="title">
+            Mi Grupo
+        </div>
+        <div class="content">
+            <div class="students">
+                <!-- Alumno 1 -->
+                <div class="student">
+                    <img class="pic" src="img/userIcon_f.jpg" />
+                    <div class="name">Alicia</div>
+                </div>
+                <!-- Alumno 2 -->
+                <div class="student">
+                    <img class="pic" src="img/userIcon_m.png" />
+                    <div class="name">Dario</div>
+                </div>
+                <!-- Alumno 3 -->
+                <div class="student">
+                    <img class="pic" src="img/userIcon_m.png" />
+                    <div class="name">Alejandro</div>
+                </div>
+            </div>
+            <img class="avatar" src="img/avatars/car1.png" />
+        </div>
+    </div>
+
+
+    <div class="accordion">
+        <div class="aventura box">
+            <div class="title">
+                Mi Aventura
+                <i class="fa fa-minus minIcon"></i>
+                <i class="fa fa-plus minIcon hidden"></i>
+            </div>
+            <div class="content">
+                <div class="stage start">INTRO</div>
+                <div class="stage stage1">ETAPA 1</div>
+                <div class="stage stage2">ETAPA 2</div>
+                <div class="stage stage3">ETAPA 3</div>
+                <img class="finish" src="img/trofeo.png" />
+            </div>
+        </div>
+
+        <div class="retos box">
+            <div class="title">
+                Mis Retos
+                <i class="fa fa-minus minIcon"></i>
+                <i class="fa fa-plus minIcon hidden"></i>
+            </div>
+            <div class="content">
+
+                <div class="reto">
+                    <img class="pic" src="img/userIcon_f.jpg" />
+                    <div class="buttons">
+                        <span class="info">Nuevo Reto</span>
+                        <button class="ok">Aceptar</button>
+                        <button class="cancel">Rechazar</button>
+                    </div>
+                    <div class="user">Alicia</div>
+                </div>
+
+                <div class="reto">
+                    <img class="pic" src="img/userIcon_m.png" />
+                    <div class="buttons">
+                        <span class="info">Tu turno</span>
+                        <button class="ok">Jugar</button>
+                    </div>
+                    <div class="user">Luis</div>
+                </div>
+
+                <div class="reto">
+                    <img class="pic" src="img/userIcon_m.png" />
+                    <div class="buttons">
+                        <span class="info">Nuevo Reto</span>
+                        <button class="ok">Aceptar</button>
+                        <button class="cancel">Rechazar</button>
+                    </div>
+                    <div class="user">Leandro</div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="desafiosIndividuales box">
+            <div class="title">
+                Mis Desafios Individuales
+                <i class="fa fa-minus minIcon"></i>
+                <i class="fa fa-plus minIcon hidden"></i>
+            </div>
+            <div class="content">
+                <div class="desafioIndividual">
+                    <div class="trophyContainer">
+                        <i class="fa fa-trophy fa-stack-2x" ></i>
+                        <i class="fa fa-check fa-stack-1x" ></i>
+                    </div>
+                    <div class="text">&lt;Juego 1&gt;</div>
+                </div>
+                <div class="desafioIndividual">
+                    <div class="trophyContainer">
+                        <i class="fa fa-trophy fa-stack-2x" ></i>
+                        <i class="fa fa-times fa-stack-1x" ></i>
+                    </div>
+                    <div class="text">&lt;Juego 2&gt;</div>
+                </div>
+                <div class="desafioIndividual">
+                    <div class="trophyContainer">
+                        <i class="fa fa-trophy fa-stack-2x" ></i>
+                    </div>
+                    <div class="text">&lt;Juego 3&gt;</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="desafiosGrupales box">
+            <div class="title">
+                Mis Desafíos Grupales
+                <i class="fa fa-minus minIcon"></i>
+                <i class="fa fa-plus minIcon hidden"></i>
+            </div>
+            <div class="content">
+                <div class="start">
+                    <img class="pic top" src="img/greenLight.png" />
+                    <div>LARGADA</div>
+                    <img class="pic bottom" src="img/greenLight.png" />
+                </div>
+                <div class="track">
+                    <div class="group group1"></div>
+                    <div class="group group2"></div>
+                    <div class="group group3"></div>
+                    <div class="group group4"></div>
+                    <div class="group group5"></div>
+                    <div class="group group6"></div>
+                </div>
+                <div class="finish">
+                    <img class="pic top" src="img/finishFlag.png" />
+                    <div>LLEGADA</div>
+                    <img class="pic bottom" src="img/finishFlag.png" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>
+
+
+
+<!-- Leaderboard -->
+<div class="leaderBoard box">
+    <div class="title">
+        Top 5
+    </div>
+    <div class="content">
+        <!-- Alumno 1 -->
+        <div class="student">
+            <i class="fa fa-arrow-up delta"></i>
+            <img class="pic" src="img/userIcon_f.jpg" />
+            <div class="name">Julia </div>
+            <div class="points">50 puntos</div>
+        </div>
+        <!-- Alumno 2 -->
+        <div class="student">
+            <i class="fa fa-arrow-down delta"></i>
+            <img class="pic" src="img/userIcon_m.png" />
+            <div class="name">Ezequiel </div>
+            <div class="points">46 puntos</div>
+        </div>
+        <!-- Alumno 3 -->
+        <div class="student">
+            <i class="fa fa-arrow-up delta"></i>
+            <img class="pic" src="img/userIcon_m.png" />
+            <div class="name">Dario</div>
+            <div class="points">40 puntos</div>
+        </div>
+        <!-- Alumno 4 -->
+        <div class="student">
+            <i class="fa fa-minus delta"></i>
+            <img class="pic" src="img/userIcon_f.jpg" />
+            <div class="name">Priscila</div>
+            <div class="points">39 puntos</div>
+        </div>
+        <!-- Alumno 5 -->
+        <div class="student">
+            <i class="fa fa-arrow-down delta"></i>
+            <img class="pic" src="img/userIcon_m.png" />
+            <div class="name">Lorenzo</div>
+            <div class="points">36 puntos</div>
+        </div>
+        <div class="showAll">VER TODOS</div>
+    </div>
+</div>
+
+<!--Twitter -->
+<div class="twitterContainer">
+    <a class="twitter-timeline" href="https://twitter.com/hashtag/gamification" data-widget-id="604697245481627648">#gamification Tweets</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+
+<!-- Twitter OFFLINE-->
+<div class="twitterContainerOffline"></div>
+
+
+
+<div class="notification">
+    <div class="title">Nuevo Reto!</div>
+    <div class="message">El alumno Leandro Romero te esta desafiando al juego <span class="game">Ordena la investigación</span></div>
+</div>
+
+
+
+
+
+</body>
+</html>

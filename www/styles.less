@@ -1,0 +1,658 @@
+
+// ************* LESS VARS ************************
+@header_bg: navy;
+@header_height: 80px;
+
+@status_bg: red;
+@status_width: 400px;
+@status_height: 128px;
+
+@font: Helvetica, Arial;
+@shadow: 2px 2px 5px 0px black; // offsetX, offsetY, spread, size (relative to element's size)
+@box_bg: #f0eaea;
+@box_border: solid 1px navy;
+@box_padding: 10px;
+
+@button_font_color: white;
+@button_ok_bg: lightgreen;
+@button_cancel_bg: red;
+
+@desafioIndividual_bg: lightgrey;
+
+
+// **************** FONTS DEF **********************
+@font-face {
+    font-family: 'Chewy';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Chewy'), url(fonts/chewy/chewy-webfont.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+// ************* TAGS ************************
+body{
+    font-family: Helvetica, Arial;
+}
+
+img{
+    vertical-align: middle;
+}
+
+*.hidden{
+    display: none !important;
+}
+
+// ************* CLASSES ************************
+.box{
+    display: inline-block;
+    background-color: @box_bg;
+    border: @box_border;
+    border-radius: 3px;
+    box-shadow: @shadow;
+
+    .title{
+        background-color: navy;
+        color: white;
+        height: 25px;
+        line-height: 25px;
+        padding-left: 10px;
+
+        .minIcon{
+            font-size: 16px;
+            float: right;
+            margin-right: 10px;
+            line-height: 25px;
+            cursor: pointer;
+        }
+    }
+
+    .content{
+        padding: @box_padding;
+        height: 100%;
+        box-sizing: border-box;
+        position: relative;
+    }
+}
+
+
+.headerBar{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    padding: 0 20px;
+    height: @header_height;
+    background-color: @header_bg;
+
+    > div{
+        display: inline-block;
+        line-height: @header_height;
+        height: @header_height;
+    }
+
+    .institutionLogo{
+        height: calc(100% - 20px);
+        float: left;
+        padding-top: 9px;
+    }
+
+    .right{
+        float: right;
+    }
+
+    .subjectTitle{
+        display: inline;
+        color: white;
+        font-size: 25px;
+        font-weight: bold;
+        padding-left: 20px;
+    }
+
+    .userName{
+        display: inline;
+        text-transform: capitalize;
+        color: white;
+        font-size: 16px;
+    }
+
+    .userPic{
+        display: inline-block;
+        vertical-align: middle;
+        width: 36px;
+        height: 36px;
+    }
+
+    .settings{
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 24px;
+        color: #ffffff;
+    }
+}
+
+
+.body{
+    position: fixed;
+    top: @header_height;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px 20px;
+
+    .myStatus{
+//        width: @status_width;
+        height: @status_height;
+        display: inline-block;
+        box-sizing: border-box;
+        color: navy;
+        font-size: 12px;
+        vertical-align: top;
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        right: 635px;
+
+        .myPoints{
+            text-transform: uppercase;
+            position: absolute;
+            left: @box_padding;
+
+            .pointsValue{
+                text-align: center;
+                font-size: 54px;
+            }
+        }
+
+        .myBadges{
+            text-transform: uppercase;
+            position: absolute;
+            left: 100px;
+            right: 100px;
+
+
+            > img{
+                width: 34px;
+                height: 34px;
+            }
+        }
+
+        .myXP{
+            text-transform: uppercase;
+            position: absolute;
+            right: @box_padding;
+            text-align: center;
+
+            .xpLevelValue{
+                background-image: url(img/star.png);
+                background-size: 100%;
+                background-repeat: no-repeat;
+                width: 70px;
+                height: 70px;
+                line-height: 70px;
+                text-align: center;
+                font-size: 25px;
+                font-weight: bold;
+                color: #ff0000;
+                margin: auto;
+            }
+        }
+    }
+
+    .myWorkgroup{
+        position: absolute;
+        top: 10px;
+        right: 360px;
+        width: 250px;
+        margin: 0 5px;
+
+        .students{
+            display: inline-block;
+
+            .student{
+                margin: 5px 0;
+
+                &:first-child{
+                    margin-top: 0;
+                }
+
+                &:last-child{
+                    margin-bottom: 0;
+                }
+
+                .pic{
+                    width: 24px;
+                    height: 24px;
+                    vertical-align: middle;
+                    background-color: #ffffff;
+                }
+                .name{
+                    display: inline-block;
+                }
+            }
+        }
+        .avatar{
+            float: right;
+            width: 92px;
+//            height: 64px;
+            border: solid 1px navy;
+            border-radius: 5px;
+            padding: 5px;
+        }
+    }
+
+    .aventura{
+
+        .content{
+
+            .stage{
+                width: 80px;
+                height: 85px;
+                display: inline-block;
+                line-height: 68px;
+                margin: 0 10px;
+                vertical-align: middle;
+                text-align: center;
+                font-family: Chewy;
+                font-size: 24px;
+                color: yellow;
+                background-size: 100%;
+
+                &.start{
+                    width: 90px;
+                    height: 90px;
+                    line-height: 90px;
+                    background-image: url(img/pergamino.png);
+                    background-repeat: no-repeat;
+                    background-position-y: 6px;
+                }
+
+                &.stage1{
+                    background-image: url(img/cutTheRope_brown_noHole.png);
+                }
+                &.stage2{
+                    background-image: url(img/cutTheRope_green_noHole.png);
+                }
+                &.stage3{
+                    background-image: url(img/cutTheRope_lock.png);
+                    width: 87px;
+                }
+            }
+
+
+
+
+
+            .finish{
+                width: 110px;
+            }
+        }
+    }
+
+    .desafiosGrupales{
+        .content{
+            height: 250px;
+
+            .start{
+                width: 40px;
+                position: absolute;
+                left: @box_padding;
+                top: @box_padding;
+                bottom: @box_padding;
+                background-color: lightsteelblue;
+
+                .pic{
+                    left: 2px;
+                    position: absolute;
+                    width: 24px;
+
+                    &.top{
+                        top: 5px;
+                    }
+
+                    &.bottom{
+                        bottom: 5px;
+                    }
+                }
+
+                >div{
+                    transform: rotate(-90deg);
+                    position: absolute;
+                    top: 115px;
+                    left: -16px;
+                }
+            }
+
+            .finish{
+                width: 40px;
+                position: absolute;
+                right: @box_padding;
+                top: @box_padding;
+                bottom: @box_padding;
+                background-color: lightsteelblue;
+
+                .pic{
+                    left: 2px;
+                    position: absolute;
+                    width: 36px;
+
+                    &.top{
+                        top: 0;
+                    }
+
+                    &.bottom{
+                        bottom: 0;
+                    }
+                }
+
+                >div{
+                    transform: rotate(90deg);
+                    position: absolute;
+                    top: 115px;
+                    left: -16px;
+                }
+            }
+
+            .track{
+                background-image: url(img/pista_fragment_soft.png);
+                background-repeat: repeat;
+                height: 100%;
+                margin: 0 30px;
+                position: relative;
+
+                .group{
+                    width: 48px;
+                    height: 36px;
+                    position: absolute;
+                    background-size: 100%;
+                    background-repeat: no-repeat;
+
+                    &.group1{
+                        background-image: url(img/avatars/car1.png);
+                        top: 106px;
+                        left: 300px;
+                    }
+
+                    &.group2{
+                        background-image: url(img/avatars/car2.png);
+                        top: 138px;
+                        left: 190px;
+                        width: 48px;
+                    }
+
+                    &.group3{
+                        background-image: url(img/avatars/car3.png);
+                        top: 50px;
+                        left: 400px;
+                    }
+
+                    &.group4{
+                        background-image: url(img/avatars/car4.png);
+                        top: 20px;
+                        left: 170px;
+                    }
+
+                    &.group5{
+                        background-image: url(img/avatars/car5.png);
+                        top: 160px;
+                        left: 350px;
+                        width: 54px;
+                    }
+
+                    &.group6{
+                        background-image: url(img/avatars/car6.png);
+                        top: 188px;
+                        left: 111px;
+                        width: 54px;
+                    }
+
+                }
+            }
+        }
+    }
+
+    .retos{
+        vertical-align: top;
+
+        .reto{
+            background-color: @desafioIndividual_bg;
+            padding: 5px;
+            border-radius: 5px;
+            display: inline-block;
+            width: 170px;
+            vertical-align: top;
+            height: 100px;
+            box-sizing: border-box;
+
+            .info{
+                font-family: Chewy;
+            }
+            .pic{
+                width: 64px;
+                height: 64px;
+                vertical-align: top;
+                background-color: #ffffff;
+            }
+            .buttons{
+                display: inline-block;
+
+                button{
+                    color: @button_font_color;
+                    box-shadow: 0px 0px 2px 1px lightslategrey;
+                    display: block;
+                    border: none;
+                    width: 80px;
+                    margin: 5px;
+
+                    &.ok{
+                        background-color: @button_ok_bg;
+                    }
+
+                    &.cancel{
+                        background-color: @button_cancel_bg;
+                    }
+                }
+            }
+            .user{
+                color: #000000;
+            }
+
+        }
+    }
+
+    .desafiosIndividuales{
+        vertical-align: top;
+
+        .desafioIndividual{
+            background-color: @desafioIndividual_bg;
+            padding: 5px;
+            border-radius: 5px;
+            display: inline-block;
+//            width: 160px;
+            vertical-align: top;
+
+            .trophyContainer{
+                height: 90px;
+                width: 90px;
+                position: relative;
+                font-size: 45px;
+
+                .fa-trophy{
+                    color: goldenrod;
+                }
+                .fa-check{
+                    color: #00ff00;
+                    top: 0;
+                    text-align: right;
+                }
+                .fa-times{
+                    color: red;
+                    top: 0;
+                    text-align: right;
+                }
+            }
+
+            .text{
+                font-family: Chewy;
+                text-align: center;
+            }
+
+        }
+    }
+}
+
+.leaderBoard{
+    position: fixed;
+    right: 0;
+    bottom: 356px;
+    width: 350px;
+
+    .student{
+        margin: 0 0 5px 0;
+        font-size: 15px;
+
+        &:first-child{
+            margin-top: 0;
+        }
+
+        &:last-child{
+            margin-bottom: 0;
+        }
+
+        .delta{
+            font-size: 16px;
+
+            &.fa-arrow-up{
+                color: green;
+            }
+
+            &.fa-arrow-down{
+                color: red;
+            }
+
+            &.fa-minus{
+                color: blue;
+                padding-right: 2px;
+            }
+        }
+
+        .pic{
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            background-color: #ffffff;
+        }
+        .name{
+            display: inline-block;
+        }
+        .points{
+            display: inline-block;
+            float: right;
+        }
+    }
+
+    .showAll{
+        text-align: center;
+        font-size: 10px;
+        font-weight: bold;
+        color: navy;
+    }
+}
+
+.twitterContainer, .twitterContainerOffline{
+    position: fixed;
+    bottom: -4px;
+    right: 0;
+    width: 350px;
+    height: 354px;
+}
+
+.twitterContainer{
+    display: inline-block;
+    border: @box_border;
+    border-radius: 3px;
+
+    &.offline{
+        display: none;
+    }
+}
+
+.twitterContainerOffline{
+    display: none;
+    background-image: url(img/twitter.png);
+    background-size: 100%;
+    background-position-y: -1px;
+
+    &.offline{
+        display: inline-block;
+    }
+}
+
+.notification{
+    position: absolute;
+    top: 90px;
+    right: 0;
+    width: 350px;
+    background-color: red;
+    height: 90px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+
+    .title{
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        line-height: 30px;
+    }
+    .message{
+        color: white;
+        font-size: 12px;
+        .game{
+            font-weight: bold;
+        }
+    }
+}
+
+
+
+
+
+.accordion{
+    position: absolute;
+    top: 140px;
+    left: 20px;
+    right: 360px;
+
+    >.box{
+        display: block;
+        margin: 5px;
+    }
+}
+
+
+.levelSelectorOverlay{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    .modal{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: red;
+    }
+
+    .levelSelector{
+        position: absolute;
+        top: 100px;
+        left: 200px;
+        right: 200px;
+        height: 200px;
+        background-color: white;
+    }
+}

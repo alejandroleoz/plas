@@ -1,0 +1,523 @@
+@font-face {
+  font-family: 'Chewy';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Chewy'), url(fonts/chewy/chewy-webfont.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+body {
+  font-family: Helvetica, Arial;
+}
+img {
+  vertical-align: middle;
+}
+*.hidden {
+  display: none !important;
+}
+.box {
+  display: inline-block;
+  background-color: #f0eaea;
+  border: solid 1px navy;
+  border-radius: 3px;
+  box-shadow: 2px 2px 5px 0px black;
+}
+.box .title {
+  background-color: navy;
+  color: white;
+  height: 25px;
+  line-height: 25px;
+  padding-left: 10px;
+}
+.box .title .minIcon {
+  font-size: 16px;
+  float: right;
+  margin-right: 10px;
+  line-height: 25px;
+  cursor: pointer;
+}
+.box .content {
+  padding: 10px;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+.headerBar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  padding: 0 20px;
+  height: 80px;
+  background-color: navy;
+}
+.headerBar > div {
+  display: inline-block;
+  line-height: 80px;
+  height: 80px;
+}
+.headerBar .institutionLogo {
+  height: calc(80%);
+  float: left;
+  padding-top: 9px;
+}
+.headerBar .right {
+  float: right;
+}
+.headerBar .subjectTitle {
+  display: inline;
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  padding-left: 20px;
+}
+.headerBar .userName {
+  display: inline;
+  text-transform: capitalize;
+  color: white;
+  font-size: 16px;
+}
+.headerBar .userPic {
+  display: inline-block;
+  vertical-align: middle;
+  width: 36px;
+  height: 36px;
+}
+.headerBar .settings {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 24px;
+  color: #ffffff;
+}
+.body {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 10px 20px;
+}
+.body .myStatus {
+  height: 128px;
+  display: inline-block;
+  box-sizing: border-box;
+  color: navy;
+  font-size: 12px;
+  vertical-align: top;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  right: 635px;
+}
+.body .myStatus .myPoints {
+  text-transform: uppercase;
+  position: absolute;
+  left: 10px;
+}
+.body .myStatus .myPoints .pointsValue {
+  text-align: center;
+  font-size: 54px;
+}
+.body .myStatus .myBadges {
+  text-transform: uppercase;
+  position: absolute;
+  left: 100px;
+  right: 100px;
+}
+.body .myStatus .myBadges > img {
+  width: 34px;
+  height: 34px;
+}
+.body .myStatus .myXP {
+  text-transform: uppercase;
+  position: absolute;
+  right: 10px;
+  text-align: center;
+}
+.body .myStatus .myXP .xpLevelValue {
+  background-image: url(img/star.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #ff0000;
+  margin: auto;
+}
+.body .myWorkgroup {
+  position: absolute;
+  top: 10px;
+  right: 360px;
+  width: 250px;
+  margin: 0 5px;
+}
+.body .myWorkgroup .students {
+  display: inline-block;
+}
+.body .myWorkgroup .students .student {
+  margin: 5px 0;
+}
+.body .myWorkgroup .students .student:first-child {
+  margin-top: 0;
+}
+.body .myWorkgroup .students .student:last-child {
+  margin-bottom: 0;
+}
+.body .myWorkgroup .students .student .pic {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  background-color: #ffffff;
+}
+.body .myWorkgroup .students .student .name {
+  display: inline-block;
+}
+.body .myWorkgroup .avatar {
+  float: right;
+  width: 92px;
+  border: solid 1px navy;
+  border-radius: 5px;
+  padding: 5px;
+}
+.body .aventura .content .stage {
+  width: 80px;
+  height: 85px;
+  display: inline-block;
+  line-height: 68px;
+  margin: 0 10px;
+  vertical-align: middle;
+  text-align: center;
+  font-family: Chewy;
+  font-size: 24px;
+  color: yellow;
+  background-size: 100%;
+}
+.body .aventura .content .stage.start {
+  width: 90px;
+  height: 90px;
+  line-height: 90px;
+  background-image: url(img/pergamino.png);
+  background-repeat: no-repeat;
+  background-position-y: 6px;
+}
+.body .aventura .content .stage.stage1 {
+  background-image: url(img/cutTheRope_brown_noHole.png);
+}
+.body .aventura .content .stage.stage2 {
+  background-image: url(img/cutTheRope_green_noHole.png);
+}
+.body .aventura .content .stage.stage3 {
+  background-image: url(img/cutTheRope_lock.png);
+  width: 87px;
+}
+.body .aventura .content .finish {
+  width: 110px;
+}
+.body .desafiosGrupales .content {
+  height: 250px;
+}
+.body .desafiosGrupales .content .start {
+  width: 40px;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  bottom: 10px;
+  background-color: lightsteelblue;
+}
+.body .desafiosGrupales .content .start .pic {
+  left: 2px;
+  position: absolute;
+  width: 24px;
+}
+.body .desafiosGrupales .content .start .pic.top {
+  top: 5px;
+}
+.body .desafiosGrupales .content .start .pic.bottom {
+  bottom: 5px;
+}
+.body .desafiosGrupales .content .start > div {
+  transform: rotate(-90deg);
+  position: absolute;
+  top: 115px;
+  left: -16px;
+}
+.body .desafiosGrupales .content .finish {
+  width: 40px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  bottom: 10px;
+  background-color: lightsteelblue;
+}
+.body .desafiosGrupales .content .finish .pic {
+  left: 2px;
+  position: absolute;
+  width: 36px;
+}
+.body .desafiosGrupales .content .finish .pic.top {
+  top: 0;
+}
+.body .desafiosGrupales .content .finish .pic.bottom {
+  bottom: 0;
+}
+.body .desafiosGrupales .content .finish > div {
+  transform: rotate(90deg);
+  position: absolute;
+  top: 115px;
+  left: -16px;
+}
+.body .desafiosGrupales .content .track {
+  background-image: url(img/pista_fragment_soft.png);
+  background-repeat: repeat;
+  height: 100%;
+  margin: 0 30px;
+  position: relative;
+}
+.body .desafiosGrupales .content .track .group {
+  width: 48px;
+  height: 36px;
+  position: absolute;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.body .desafiosGrupales .content .track .group.group1 {
+  background-image: url(img/avatars/car1.png);
+  top: 106px;
+  left: 300px;
+}
+.body .desafiosGrupales .content .track .group.group2 {
+  background-image: url(img/avatars/car2.png);
+  top: 138px;
+  left: 190px;
+  width: 48px;
+}
+.body .desafiosGrupales .content .track .group.group3 {
+  background-image: url(img/avatars/car3.png);
+  top: 50px;
+  left: 400px;
+}
+.body .desafiosGrupales .content .track .group.group4 {
+  background-image: url(img/avatars/car4.png);
+  top: 20px;
+  left: 170px;
+}
+.body .desafiosGrupales .content .track .group.group5 {
+  background-image: url(img/avatars/car5.png);
+  top: 160px;
+  left: 350px;
+  width: 54px;
+}
+.body .desafiosGrupales .content .track .group.group6 {
+  background-image: url(img/avatars/car6.png);
+  top: 188px;
+  left: 111px;
+  width: 54px;
+}
+.body .retos {
+  vertical-align: top;
+}
+.body .retos .reto {
+  background-color: lightgrey;
+  padding: 5px;
+  border-radius: 5px;
+  display: inline-block;
+  width: 170px;
+  vertical-align: top;
+  height: 100px;
+  box-sizing: border-box;
+}
+.body .retos .reto .info {
+  font-family: Chewy;
+}
+.body .retos .reto .pic {
+  width: 64px;
+  height: 64px;
+  vertical-align: top;
+  background-color: #ffffff;
+}
+.body .retos .reto .buttons {
+  display: inline-block;
+}
+.body .retos .reto .buttons button {
+  color: white;
+  box-shadow: 0px 0px 2px 1px lightslategrey;
+  display: block;
+  border: none;
+  width: 80px;
+  margin: 5px;
+}
+.body .retos .reto .buttons button.ok {
+  background-color: lightgreen;
+}
+.body .retos .reto .buttons button.cancel {
+  background-color: red;
+}
+.body .retos .reto .user {
+  color: #000000;
+}
+.body .desafiosIndividuales {
+  vertical-align: top;
+}
+.body .desafiosIndividuales .desafioIndividual {
+  background-color: lightgrey;
+  padding: 5px;
+  border-radius: 5px;
+  display: inline-block;
+  vertical-align: top;
+}
+.body .desafiosIndividuales .desafioIndividual .trophyContainer {
+  height: 90px;
+  width: 90px;
+  position: relative;
+  font-size: 45px;
+}
+.body .desafiosIndividuales .desafioIndividual .trophyContainer .fa-trophy {
+  color: goldenrod;
+}
+.body .desafiosIndividuales .desafioIndividual .trophyContainer .fa-check {
+  color: #00ff00;
+  top: 0;
+  text-align: right;
+}
+.body .desafiosIndividuales .desafioIndividual .trophyContainer .fa-times {
+  color: red;
+  top: 0;
+  text-align: right;
+}
+.body .desafiosIndividuales .desafioIndividual .text {
+  font-family: Chewy;
+  text-align: center;
+}
+.leaderBoard {
+  position: fixed;
+  right: 0;
+  bottom: 356px;
+  width: 350px;
+}
+.leaderBoard .student {
+  margin: 0 0 5px 0;
+  font-size: 15px;
+}
+.leaderBoard .student:first-child {
+  margin-top: 0;
+}
+.leaderBoard .student:last-child {
+  margin-bottom: 0;
+}
+.leaderBoard .student .delta {
+  font-size: 16px;
+}
+.leaderBoard .student .delta.fa-arrow-up {
+  color: green;
+}
+.leaderBoard .student .delta.fa-arrow-down {
+  color: red;
+}
+.leaderBoard .student .delta.fa-minus {
+  color: blue;
+  padding-right: 2px;
+}
+.leaderBoard .student .pic {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  background-color: #ffffff;
+}
+.leaderBoard .student .name {
+  display: inline-block;
+}
+.leaderBoard .student .points {
+  display: inline-block;
+  float: right;
+}
+.leaderBoard .showAll {
+  text-align: center;
+  font-size: 10px;
+  font-weight: bold;
+  color: navy;
+}
+.twitterContainer,
+.twitterContainerOffline {
+  position: fixed;
+  bottom: -4px;
+  right: 0;
+  width: 350px;
+  height: 354px;
+}
+.twitterContainer {
+  display: inline-block;
+  border: solid 1px navy;
+  border-radius: 3px;
+}
+.twitterContainer.offline {
+  display: none;
+}
+.twitterContainerOffline {
+  display: none;
+  background-image: url(img/twitter.png);
+  background-size: 100%;
+  background-position-y: -1px;
+}
+.twitterContainerOffline.offline {
+  display: inline-block;
+}
+.notification {
+  position: absolute;
+  top: 90px;
+  right: 0;
+  width: 350px;
+  background-color: red;
+  height: 90px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.notification .title {
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  line-height: 30px;
+}
+.notification .message {
+  color: white;
+  font-size: 12px;
+}
+.notification .message .game {
+  font-weight: bold;
+}
+.accordion {
+  position: absolute;
+  top: 140px;
+  left: 20px;
+  right: 360px;
+}
+.accordion > .box {
+  display: block;
+  margin: 5px;
+}
+.levelSelectorOverlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.levelSelectorOverlay .modal {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: red;
+}
+.levelSelectorOverlay .levelSelector {
+  position: absolute;
+  top: 100px;
+  left: 200px;
+  right: 200px;
+  height: 200px;
+  background-color: white;
+}
